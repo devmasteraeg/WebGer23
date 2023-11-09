@@ -123,3 +123,17 @@ DETAIL:  Um campo com precisão 10, escala 2 deve arredondar para um valor absolu
 Level: ERROR | Data: 2023-11-09 17:31:38,350 | Modulo: views | Aviso: Erro ao criar objeto - View: ProcessoAdmCreate - Erro: ERRO:  estouro de campo numeric
 DETAIL:  Um campo com precisão 10, escala 2 deve arredondar para um valor absoluto menor do que 10^8.
 
+Level: ERROR | Data: 2023-11-09 17:41:33,342 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
+
+Level: ERROR | Data: 2023-11-09 17:42:44,256 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
+
+Level: ERROR | Data: 2023-11-09 17:43:10,533 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
+
+Level: ERROR | Data: 2023-11-09 17:43:36,435 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
+
+Level: ERROR | Data: 2023-11-09 17:44:22,295 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
+
+Level: ERROR | Data: 2023-11-09 17:46:44,516 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
+
+Level: ERROR | Data: 2023-11-09 17:49:14,635 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
+

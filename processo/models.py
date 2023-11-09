@@ -11,7 +11,7 @@ class Auditoria(models.Model): #Logs de Create, Update, Delete
     acao = models.CharField(max_length=255) # "create", "update", "delete"
     processo = models.CharField(max_length=255, blank=True, null=True)
     andamento = models.CharField(max_length=255, blank=True, null=True)
-    campos_alterados = models.CharField(max_length=255, blank=True, null=True)
+    campos_alterados = models.CharField(max_length=1000, blank=True, null=True)
     data_hora = models.DateTimeField(auto_now_add=True)
 
     class Meta:
