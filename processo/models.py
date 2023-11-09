@@ -79,7 +79,7 @@ class AndamentoAdm(Base):
     data_andamento = models.DateField(verbose_name='Data do Andamento')
     tipo_andamento = models.ForeignKey(TipoAndamentoAdm, on_delete=models.SET_NULL, null=True) 
     situacao_pagamento = models.CharField(max_length=100, choices=situacao, blank=True, null=True) 
-    valor_pago = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True)
+    valor_pago = models.DecimalField(decimal_places=2, max_digits=11, blank=True, null=True)
     data_prazo = models.DateField(blank=True, null=True)
     funcionario = models.CharField(max_length=50, blank=True, null=True)
     data_recebimento = models.DateField(blank=True, null=True)
