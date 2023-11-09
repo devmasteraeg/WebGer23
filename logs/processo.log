@@ -96,3 +96,19 @@ Level: INFO | Data: 2023-11-08 17:35:30,462 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-11-09 12:24:28,909 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: ERROR | Data: 2023-11-09 13:55:24,239 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
 Level: ERROR | Data: 2023-11-09 14:00:30,279 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
+Level: ERROR | Data: 2023-11-09 14:08:28,760 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 2.docx'
+Level: ERROR | Data: 2023-11-09 14:21:52,167 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 2.docx'
+Level: ERROR | Data: 2023-11-09 14:25:19,424 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
+Level: INFO | Data: 2023-11-09 14:26:22,864 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-11-09 14:26:37,275 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\TESTE1.docx'
+Level: ERROR | Data: 2023-11-09 14:33:31,563 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
+Level: ERROR | Data: 2023-11-09 14:35:04,621 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
+Level: ERROR | Data: 2023-11-09 14:35:27,363 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
+Level: ERROR | Data: 2023-11-09 14:41:15,934 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
+Level: ERROR | Data: 2023-11-09 14:46:33,960 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
+Level: ERROR | Data: 2023-11-09 14:53:46,676 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Level: ERROR | Data: 2023-11-09 14:55:17,354 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Level: ERROR | Data: 2023-11-09 14:55:54,983 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Level: ERROR | Data: 2023-11-09 14:56:12,526 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Level: ERROR | Data: 2023-11-09 14:56:18,158 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221008, 'CoInitialize não foi chamado.', None, None)
+Level: ERROR | Data: 2023-11-09 14:57:16,417 | Modulo: views | Aviso: Erro ao mesclar PDF - View: MesclarPDFsView - Erro: [Errno 2] No such file or directory: 'C:\\Users\\webge\\Documents\\GitHub\\WebGer23\\media\\Arquivo\\RECURSO_AO_REPASSE_DO_INDICE_DE_ICMS_-_SÃO_GABRIEL_DO_OESTE_-_MS__ok_revisado_1.pdf'

@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 
-import dj_database_url # Módulo usado na configuração da conexão do banco de dados no deploy
-
 import os # Módulo para utilizar funcionalidades relacionadas ao sistema operacional, como manipulação de arquivos, variáveis de ambiente e muitas outras operações relacionadas ao sistema
 
 # from dotenv import load_dotenv # Módulo para importação do arquivo .env onde estão as configurações das variáveis de ambiente.
@@ -39,10 +37,10 @@ SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5
 # DEBUG = os.environ.get('DEBUG') =='True' Usado no deployda Fly.io
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'a78a-191-222-170-47.ngrok-free.app']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '0978-191-222-170-47.ngrok-free.app']
 
 # Configuração de origens confiáveis, para funcionamento do CSRF_TOKEN
-CSRF_TRUSTED_ORIGINS = ['https://a78a-191-222-170-47.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://0978-191-222-170-47.ngrok-free.app']
 
 # Application definition
 
@@ -175,12 +173,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
-# MEDIA_URL = '/media/'
+MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Arquivos de Media (Para salvar os arquivos em um servidor externo, acessado via IP) (USAR DURANTE A PRODUÇÃO)
-MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
+# MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
 MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
 # Servidor utilizado: MyCloud EX2 Ultra
 #================================================================================================================
