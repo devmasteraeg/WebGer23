@@ -61,7 +61,7 @@
                     <div class="row">
                         <div class="col">
                             <label for="valor_atributo">Valor do Tributo</label>
-                            {% render_field form.valor_atributo class="mask-money form-control" placeholder="R$"  id="valor_atributo" autocomplete="off"%}
+                            {% render_field form.valor_atributo class="mask-money form-control" type="text" placeholder="R$"  id="valor_atributo" autocomplete="off"%}
                         </div>
                         <div class="col">
                             <label for="valor_multa">Valor da Multa</label>
@@ -167,6 +167,11 @@
     <!-- Importação do arquivo dentro da pasta static/js para usar máscaras nos campos input -->
     <script src="{% static 'js/jquery.mask.min.js' %}"></script>
 
+    <!-- Importações para utilizar maskMoney -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+
     <!-- Configuração de máscaras nos campos inputs, buscando o campo através do ID -->
     <script>
         $(document).ready(function(){
@@ -174,10 +179,58 @@
             $("#cep").mask('00000-000');
             $("#telefone").mask('(00) 0000-0000');
             $("#celular").mask('(00) 00000-0000');
-            $('#valor_atributo').mask("000,000,000.00", {reverse: true});
-            $('#valor_multa').mask("000,000,000.00", {reverse: true});
-            $('#valor_credito').mask("000,000,000.00", {reverse: true});
-            $('#valor_atualizado').mask("000,000,000.00", {reverse: true});
+
+            // ---------------------------------
+            $('#valor_atributo').maskMoney({
+                thousands: '.',
+                decimal: ',',
+                precision: 2,
+            });
+            
+            $('form').on('submit', function() {
+                // Remove a máscara monetária antes de enviar o formulário
+                var valor = $('#valor_atributo').maskMoney('unmasked')[0];
+                $('#valor_atributo').val(valor);
+            });
+
+            // ---------------------------------
+            $('#valor_multa').maskMoney({
+                thousands: '.',
+                decimal: ',',
+                precision: 2,
+            });
+            
+            $('form').on('submit', function() {
+                // Remove a máscara monetária antes de enviar o formulário
+                var valor = $('#valor_multa').maskMoney('unmasked')[0];
+                $('#valor_multa').val(valor);
+            });
+
+            // ---------------------------------
+            $('#valor_credito').maskMoney({
+                thousands: '.',
+                decimal: ',',
+                precision: 2,
+            });
+            
+            $('form').on('submit', function() {
+                // Remove a máscara monetária antes de enviar o formulário
+                var valor = $('#valor_credito').maskMoney('unmasked')[0];
+                $('#valor_credito').val(valor);
+            });
+
+            // ---------------------------------
+            $('#valor_atualizado').maskMoney({
+                thousands: '.',
+                decimal: ',',
+                precision: 2,
+            });
+            
+            $('form').on('submit', function() {
+                // Remove a máscara monetária antes de enviar o formulário
+                var valor = $('#valor_atualizado').maskMoney('unmasked')[0];
+                $('#valor_atualizado').val(valor);
+            });
 
             // Função para aplicar máscara de CPF ou CNPJ de acordo com a seleção do campo select de 'Tipo pessoa'
             function aplicarMascara(){

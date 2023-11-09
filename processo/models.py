@@ -38,10 +38,10 @@ class ProcessoAdm(Base):
     data_inicial = models.DateField(blank=True, null=True) # Data Inicial do Período do processo
     data_final = models.DateField(blank=True, null=True) # Data final do Período do processo
     data_div_ativa = models.DateField(blank=True, null=True) # Data dívida ativa
-    valor_atributo = models.CharField(max_length=14, blank=True, null=True)  # Valor do atributo
-    valor_multa = models.CharField(max_length=14, blank=True, null=True) # Valor da multa
-    valor_credito = models.CharField(max_length=14, blank=True, null=True) # Valor do crédito
-    valor_atualizado = models.CharField(max_length=14, blank=True, null=True) # Valor do atualizado
+    valor_atributo = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True)  # Valor do atributo
+    valor_multa = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True) # Valor da multa
+    valor_credito = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True) # Valor do crédito
+    valor_atualizado = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True) # Valor do atualizado
     data_valor_atualizado = models.DateField(blank=True, null=True) # Data valor atualizado
     nome_contribuinte = models.CharField(max_length=50)  # Nome / Razão Social
     tipo_pessoa = models.CharField(max_length=50, choices=tipo_pessoas) # Física / Jurídica # Utiliza choices(escolhas) para selecionar o tipo de pessoas
@@ -79,7 +79,7 @@ class AndamentoAdm(Base):
     data_andamento = models.DateField(verbose_name='Data do Andamento')
     tipo_andamento = models.ForeignKey(TipoAndamentoAdm, on_delete=models.SET_NULL, null=True) 
     situacao_pagamento = models.CharField(max_length=100, choices=situacao, blank=True, null=True) 
-    valor_pago = models.CharField(max_length=14, blank=True, null=True)
+    valor_pago = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True)
     data_prazo = models.DateField(blank=True, null=True)
     funcionario = models.CharField(max_length=50, blank=True, null=True)
     data_recebimento = models.DateField(blank=True, null=True)
