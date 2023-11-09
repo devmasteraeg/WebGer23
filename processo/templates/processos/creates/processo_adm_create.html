@@ -65,15 +65,15 @@
                         </div>
                         <div class="col">
                             <label for="valor_multa">Valor da Multa</label>
-                            {% render_field form.valor_multa class="form-control" placeholder="R$" id="valor_multa" autocomplete="off"%}
+                            {% render_field form.valor_multa class="mask-money form-control" type="text" placeholder="R$" id="valor_multa" autocomplete="off"%}
                         </div>
                         <div class="col">
                             <label for="valor_credito">Valor do Crédito</label>
-                            {% render_field form.valor_credito class="form-control" placeholder="R$" id="valor_credito" autocomplete="off"%}
+                            {% render_field form.valor_credito class="mask-money form-control" type="text" placeholder="R$" id="valor_credito" autocomplete="off"%}
                         </div>
                         <div class="col">
                             <label for="valor_atualizado">Valor do Atualizado</label>
-                            {% render_field form.valor_atualizado class="form-control" placeholder="R$" id="valor_atualizado" autocomplete="off"%}
+                            {% render_field form.valor_atualizado class="mask-money form-control" type="text" placeholder="R$" id="valor_atualizado" autocomplete="off"%}
                         </div>  
                         <div class="col">
                             <label for="data_valor_atualizado">Data Valor Atualizado</label>
@@ -184,7 +184,6 @@
             $('#valor_atributo').maskMoney({
                 thousands: '.',
                 decimal: ',',
-                precision: 2,
             });
             
             $('form').on('submit', function() {
@@ -197,7 +196,6 @@
             $('#valor_multa').maskMoney({
                 thousands: '.',
                 decimal: ',',
-                precision: 2,
             });
             
             $('form').on('submit', function() {
@@ -210,7 +208,6 @@
             $('#valor_credito').maskMoney({
                 thousands: '.',
                 decimal: ',',
-                precision: 2,
             });
             
             $('form').on('submit', function() {
@@ -223,7 +220,6 @@
             $('#valor_atualizado').maskMoney({
                 thousands: '.',
                 decimal: ',',
-                precision: 2,
             });
             
             $('form').on('submit', function() {

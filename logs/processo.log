@@ -112,3 +112,5 @@ Level: ERROR | Data: 2023-11-09 14:55:54,983 | Modulo: views | Aviso: Erro ao cr
 Level: ERROR | Data: 2023-11-09 14:56:12,526 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221008, 'CoInitialize não foi chamado.', None, None)
 Level: ERROR | Data: 2023-11-09 14:56:18,158 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221008, 'CoInitialize não foi chamado.', None, None)
 Level: ERROR | Data: 2023-11-09 14:57:16,417 | Modulo: views | Aviso: Erro ao mesclar PDF - View: MesclarPDFsView - Erro: [Errno 2] No such file or directory: 'C:\\Users\\webge\\Documents\\GitHub\\WebGer23\\media\\Arquivo\\RECURSO_AO_REPASSE_DO_INDICE_DE_ICMS_-_SÃO_GABRIEL_DO_OESTE_-_MS__ok_revisado_1.pdf'
+Level: ERROR | Data: 2023-11-09 16:50:15,747 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
+
