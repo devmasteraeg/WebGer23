@@ -94,3 +94,5 @@ Level: INFO | Data: 2023-11-08 11:02:17,184 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-11-08 11:02:41,284 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-11-08 17:35:30,462 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-11-09 12:24:28,909 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-11-09 13:55:24,239 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
+Level: ERROR | Data: 2023-11-09 14:00:30,279 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
