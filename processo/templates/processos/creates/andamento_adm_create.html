@@ -41,7 +41,7 @@
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Com Pagamento' for selecionado -->
                     <div class="col" style="display: none;" id="valor_pago">
                         <label for="valor_pago">Total do Valor Pago <b>*</b></label>
-                        {% render_field form.valor_pago class="form-control" id="pag" placeholder="R$"%}
+                        {% render_field form.valor_pago class="mask-money form-control" type="text" id="pag" placeholder="R$"%}
                     </div>
                 </div>
                 <br>
@@ -94,16 +94,22 @@
 <!-- Importação do Jquery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<!-- Importações para utilizar maskMoney -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+
 <!-- Função em Java Script para mostrar/ocultar campos com base nas seleções -->
 <script>
     $(document).ready(function() {
+
     // Função para mostrar/ocultar campos com base nas seleções
     function toggleFields() {
         var andamento = $("#tipo_andamento");
         var situacao = $("#sit");
         var pago = $("#pag");
         
-        if (andamento.val() === '4') { // '1' = 'Encerrado'
+        if (andamento.val() === '2') { // '1' = 'Encerrado'
             $("#situacao_pagamento").show();
             if (situacao.val() === 'Com Pagamento') {
                 $("#valor_pago").show();
@@ -138,6 +144,18 @@
         
         // Adicione ouvintes de eventos para atualizar os campos quando as seleções mudarem
         $("#tipo_andamento, #situacao_pagamento").on("change", toggleFields);
+
+    // Para utilizar mácara de real maskMoney no campo total_pago
+    $('#pag').maskMoney({
+        thousands: '.',
+        decimal: ',',
+    });
+        
+    $('form').on('submit', function() {
+        // Remove a máscara monetária antes de enviar o formulário
+        var valor = $('#pag').maskMoney('unmasked')[0];
+        $('#pag').val(valor);
+    });
         
     });
 </script>

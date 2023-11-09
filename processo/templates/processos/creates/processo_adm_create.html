@@ -61,19 +61,19 @@
                     <div class="row">
                         <div class="col">
                             <label for="valor_atributo">Valor do Tributo</label>
-                            {% render_field form.valor_atributo class="mask-money form-control" type="text" placeholder="R$"  id="valor_atributo" autocomplete="off"%}
+                            {% render_field form.valor_atributo class="mask-money form-control" type="text" maxlength="14" placeholder="R$"  id="valor_atributo" autocomplete="off"%}
                         </div>
                         <div class="col">
                             <label for="valor_multa">Valor da Multa</label>
-                            {% render_field form.valor_multa class="mask-money form-control" type="text" placeholder="R$" id="valor_multa" autocomplete="off"%}
+                            {% render_field form.valor_multa class="mask-money form-control" type="text" maxlength="14" placeholder="R$" id="valor_multa" autocomplete="off"%}
                         </div>
                         <div class="col">
                             <label for="valor_credito">Valor do Crédito</label>
-                            {% render_field form.valor_credito class="mask-money form-control" type="text" placeholder="R$" id="valor_credito" autocomplete="off"%}
+                            {% render_field form.valor_credito class="mask-money form-control" type="text" maxlength="14" placeholder="R$" id="valor_credito" autocomplete="off"%}
                         </div>
                         <div class="col">
                             <label for="valor_atualizado">Valor do Atualizado</label>
-                            {% render_field form.valor_atualizado class="mask-money form-control" type="text" placeholder="R$" id="valor_atualizado" autocomplete="off"%}
+                            {% render_field form.valor_atualizado class="mask-money form-control" type="text" maxlength="14" placeholder="R$" id="valor_atualizado" autocomplete="off"%}
                         </div>  
                         <div class="col">
                             <label for="data_valor_atualizado">Data Valor Atualizado</label>

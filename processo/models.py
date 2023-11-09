@@ -38,10 +38,10 @@ class ProcessoAdm(Base):
     data_inicial = models.DateField(blank=True, null=True) # Data Inicial do Período do processo
     data_final = models.DateField(blank=True, null=True) # Data final do Período do processo
     data_div_ativa = models.DateField(blank=True, null=True) # Data dívida ativa
-    valor_atributo = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True)  # Valor do atributo
-    valor_multa = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True) # Valor da multa
-    valor_credito = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True) # Valor do crédito
-    valor_atualizado = models.DecimalField(decimal_places=2, max_digits=10, blank=True, null=True) # Valor do atualizado
+    valor_atributo = models.DecimalField(decimal_places=2, max_digits=11, blank=True, null=True)  # Valor do atributo
+    valor_multa = models.DecimalField(decimal_places=2, max_digits=11, blank=True, null=True) # Valor da multa
+    valor_credito = models.DecimalField(decimal_places=2, max_digits=11, blank=True, null=True) # Valor do crédito
+    valor_atualizado = models.DecimalField(decimal_places=2, max_digits=11, blank=True, null=True) # Valor do atualizado
     data_valor_atualizado = models.DateField(blank=True, null=True) # Data valor atualizado
     nome_contribuinte = models.CharField(max_length=50)  # Nome / Razão Social
     tipo_pessoa = models.CharField(max_length=50, choices=tipo_pessoas) # Física / Jurídica # Utiliza choices(escolhas) para selecionar o tipo de pessoas
@@ -52,7 +52,7 @@ class ProcessoAdm(Base):
     complemento = models.CharField(max_length=50, blank=True, null=True) # Complemento
     municipio_contribuinte = models.CharField(max_length=50, blank=True, null=True) # Município Contribuinte
     uf_contribuinte = models.CharField(max_length=2, verbose_name='UF', blank=True, null=True) # UF Contribuinte
-    cep = models.CharField(max_length=10, blank=True, null=True) # CEP
+    cep = models.CharField(max_length=11, blank=True, null=True) # CEP
     telefone = models.CharField(max_length=20, blank=True, null=True) # Telefone
     celular = models.CharField(max_length=20, blank=True, null=True) # Celular
 
