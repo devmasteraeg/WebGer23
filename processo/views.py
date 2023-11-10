@@ -156,7 +156,9 @@ class AndamentoAdmCreate(CreateView):
             """
             # Código para conversão do arquivo enviado, de .docx(word) para .pdf
             
-            # É obrigatório ter o WORD instalado na máquina!
+            # É obrigatório ter o OFFICE instalado na máquina!
+
+            # Quando feito o upload, o arquivo é inserido e tratado na diretório 'media' e depois enviado para o servidor de arquivos externo configurado no settings.
             """
             # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
             if 'arquivo' in self.request.FILES:

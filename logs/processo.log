@@ -191,3 +191,5 @@ Level: ERROR | Data: 2023-11-10 16:25:59,618 | Modulo: views | Aviso: Erro ao cr
 Level: ERROR | Data: 2023-11-10 16:27:47,854 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
 Level: ERROR | Data: 2023-11-10 16:46:36,437 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/arquivo/PDF1.docx'
 Level: ERROR | Data: 2023-11-10 16:47:10,218 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/arquivo/PDF1.docx'
+Level: ERROR | Data: 2023-11-10 16:53:38,212 | Modulo: views | Aviso: Erro ao mesclar PDF - View: MesclarPDFsView - Erro: [Errno 2] No such file or directory: '\\\\10.0.0.3\\webger23\\arquivo\\RECURSO_AO_REPASSE_DO_INDICE_DE_ICMS_-_SÃO_GABRIEL_DO_OESTE_-_MS__ok_revisado_1_KHWbXoX.pdf'
+Level: INFO | Data: 2023-11-10 17:06:31,496 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
