@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="C:\Users\webge\Documents\GitHub\WebGer23\env"
+VIRTUAL_ENV="C:\Users\webge\OneDrive\Documentos\GitHub\WebGer23\env"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
