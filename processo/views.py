@@ -156,6 +156,7 @@ class AndamentoAdmCreate(CreateView):
             """
             # Código para conversão do arquivo enviado, de .docx(word) para .pdf
             
+            # É obrigatório ter o WORD instalado na máquina!
             """
             # Antes de salvar o formulário, verifica se um arquivo Word foi enviado
             if 'arquivo' in self.request.FILES:
@@ -164,7 +165,7 @@ class AndamentoAdmCreate(CreateView):
                 
                 if arquivo.name.endswith('.docx'): # Se o arquivo termina com '.docx'
                     # Cria um arquivo temporário para a conversão
-                    word_temporario = os.path.join('media/Arquivo/', arquivo.name)
+                    word_temporario = os.path.join('media/arquivo/', arquivo.name)
                     with open(word_temporario, 'wb') as arquivo_temporario:
                         for chunk in arquivo.chunks():
                             arquivo_temporario.write(chunk)

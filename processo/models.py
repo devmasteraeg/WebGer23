@@ -84,7 +84,7 @@ class AndamentoAdm(Base):
     funcionario = models.CharField(max_length=50, blank=True, null=True)
     data_recebimento = models.DateField(blank=True, null=True)
     complemento = models.CharField(max_length=150, blank=True, null=True)
-    arquivo = models.FileField(upload_to='Arquivo/', verbose_name='Arquivo', blank=True) 
+    arquivo = models.FileField(upload_to='arquivo/', verbose_name='Arquivo', blank=True) 
 
     def __str__(self):
         return f'Processo: {self.processo} Andamento: {self.tipo_andamento} Arquivo: {self.arquivo} Ativo: {self.ativo}'
