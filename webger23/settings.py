@@ -14,14 +14,8 @@ from pathlib import Path
 
 import os # Módulo para utilizar funcionalidades relacionadas ao sistema operacional, como manipulação de arquivos, variáveis de ambiente e muitas outras operações relacionadas ao sistema
 
-# from dotenv import load_dotenv # Módulo para importação do arquivo .env onde estão as configurações das variáveis de ambiente.
-
-# load_dotenv() # Chamada do dotenv
-
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.2/howto/deployment/checklist/
@@ -34,7 +28,6 @@ SECRET_KEY = 'django-insecure-l^j*v2e&&e@@21#+kd@5xdj7v#!e7-iwt%x(78e0=)7_2p+!%5
 # SECRET_KEY = os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = os.environ.get('DEBUG') =='True' Usado no deployda Fly.io
 DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '1740-191-222-170-47.ngrok-free.app']
@@ -115,13 +108,6 @@ DATABASES = {
     }
 }
 
-# Utiliza em modo de Produção do Deploy Fly.io
-# DATABASES = {
-#     'default': dj_database_url.config(
-#         default='sqlite:///' + os.path.join('db.sqlite3')
-#     )
-# }
-
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -161,15 +147,8 @@ USE_TZ = True # Utilizado em modo de Desenvolvimento
 STATIC_URL = '/static/' # Usado durante o desenvolvimento
 # STATIC_ROOT = str(BASE_DIR / 'staticfiles') # Usado durante a produção
 
-# Usado durante o deploy do Fly.io =============================================================================
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' # withenoise
-
 # STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'webger23/static')
-# ]
-# ==============================================================================================================
 
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)

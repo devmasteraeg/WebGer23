@@ -138,3 +138,16 @@ Level: ERROR | Data: 2023-11-09 17:46:44,516 | Modulo: views | Aviso: Erro ao ed
 Level: ERROR | Data: 2023-11-09 17:49:14,635 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
 
 Level: INFO | Data: 2023-11-10 09:25:09,262 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-10 14:09:06,388 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-11-10 14:10:42,134 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
+Level: ERROR | Data: 2023-11-10 14:11:48,292 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
+Level: ERROR | Data: 2023-11-10 14:27:56,257 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
+Level: ERROR | Data: 2023-11-10 14:28:17,848 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/Arquivo\\PDF NÚMERO 1.docx'
+Level: ERROR | Data: 2023-11-10 14:29:09,995 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/PDF NÚMERO 1.docx'
+Level: ERROR | Data: 2023-11-10 14:30:10,025 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/PDF1.docx'
+Level: ERROR | Data: 2023-11-10 14:30:47,011 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/PDF1.docx'
+Level: ERROR | Data: 2023-11-10 14:31:57,360 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/PDF1.docx'
+Level: ERROR | Data: 2023-11-10 14:32:48,074 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
+Level: ERROR | Data: 2023-11-10 14:33:44,528 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
+Level: ERROR | Data: 2023-11-10 14:35:24,785 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: (-2147221005, 'Cadeia de caracteres de classe inválida', None, None)
+Level: ERROR | Data: 2023-11-10 14:36:49,776 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/arquivo/PDF1.docx'
