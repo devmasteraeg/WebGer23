@@ -137,3 +137,4 @@ Level: ERROR | Data: 2023-11-09 17:46:44,516 | Modulo: views | Aviso: Erro ao ed
 
 Level: ERROR | Data: 2023-11-09 17:49:14,635 | Modulo: views | Aviso: Erro ao editar objeto - View: ProcessoAdmUpdate - Erro: ERRO:  valor é muito longo para tipo character varying(255)
 
+Level: INFO | Data: 2023-11-10 09:25:09,262 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
