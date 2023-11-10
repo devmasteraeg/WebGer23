@@ -40,7 +40,7 @@ DEBUG = True
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '2f66-191-222-170-47.ngrok-free.app']
 
 # Configuração de origens confiáveis, para funcionamento do CSRF_TOKEN
-CSRF_TRUSTED_ORIGINS = ['https://2f66-191-222-170-47.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://def5-191-222-170-47.ngrok-free.app']
 
 # Application definition
 
