@@ -153,12 +153,12 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 #================================================================================================================
 # Arquivos de Media (Para salvar os arquivos em endereço local, na mesma máquina do código) (USAR DURANTE O DESENVOLVIMENTO)
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Arquivos de Media (Para salvar os arquivos em um servidor externo, acessado via IP) (USAR DURANTE A PRODUÇÃO)
 # MEDIA_URL = '/media/' # Busca o arquivo na pasta media dentro do Servidor, quando é realizado um download.
-MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
+# MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, quando é realizado um upload.
 # Servidor utilizado: MyCloud EX2 Ultra
 #================================================================================================================
 
@@ -168,12 +168,10 @@ MEDIA_ROOT = ('//10.0.0.3/webger23/') # Encaminha o arquivo para o Servidor, qua
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 # Configurações de autenticação padrão de login
 LOGIN_REDIRECT_URL = 'index'  # Redireciona para a url de nome 'index' após realizar o login
 LOGOUT_REDIRECT_URL = 'login' # Ao fazer o logout(sair), ira direcionar para a url de nome 'login'
 LOGIN_URL = 'login'  # Ao tentar acessar uma funcionalidade com permissão apenas para quem tem permissão, ira direcionar para a url de nome 'login'
-
 
 # LOGGING ------------------------------
 import os
