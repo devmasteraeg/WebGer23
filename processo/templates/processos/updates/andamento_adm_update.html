@@ -29,18 +29,28 @@
                             <label for="data_andamento">Data do Andamento <b>*</b></label>
                             {% render_field form.data_andamento class="form-control" id="data_andamento" placeholder="  /  /    "%}
                         </div>
-                        <div class="col">
+                        <div class="col" style="display: none;">
                             <label for="tipo_andamento">Tipo de Andamento <b>*</b></label>
                             {% render_field form.tipo_andamento class="andamento form-control" id="tipo_andamento"%}
                         </div>
-                        <div class="col"  id="situacao_pagamento"> <!--style="display: none;" Deixa o campo invizível-->
-                            <label for="situacao_pagamento">Situação do Pagamento <b>*</b></label>
-                            {% render_field form.situacao_pagamento class="form-control" id="sit"%}
-                        </div>
-                        <div class="col" style="display: none;" id="valor_pago">
-                            <label for="valor_pago">Total do Valor Pago <b>*</b></label>
-                            {% render_field form.valor_pago class="form-control" id="pag"% placeholder="R$"%}
-                        </div>
+                        {% for atributo in dados_andamento %} <!-- Os campos a baixa estão ocultos para não aparecer no template de update-->
+                            <div class="col" style="display: none;" > <!--  id="situacao_pagamento" / style="display: none;" Deixa o campo invizível-->
+                                <label for="situacao_pagamento">Situação do Pagamento <b>*</b></label>
+                                <input type="text" class="form-control" value="{{ atributo.situacao_pagamento }}">
+                            </div>
+                            <div class="col" style="display: none;"> <!--id="valor_pago"-->
+                                <label for="valor_pago">Total do Valor Pago <b>*</b></label>
+                                <input type="text" class="form-control" value="{{ atributo.valor_pago }}">
+                            </div>
+                            <div class="col" style="display: none;"> <!--id="funcionario"-->
+                                <label for="funcionario">Funcionario</label>
+                                <input type="text" class="form-control" value="{{ atributo.funcionario }}">
+                            </div>
+                            <div class="col" style="display: none;"> <!--id="localizacao_processo"-->
+                                <label for="localizacao_processo">Localização Processo</label>
+                                <input type="text" class="form-control" value="{{ atributo.localizacao_processo }}">
+                            </div>
+                        {% endfor %}
                     </div>
                     <br>
                     <div class="row">
@@ -82,16 +92,24 @@
 <!-- Importação do Jquery -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+<!-- Importações para utilizar maskMoney -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-maskmoney/3.0.2/jquery.maskMoney.min.js"></script>
+
 <!-- Função em Java Script para mostrar/ocultar campos com base nas seleções -->
 <script>
     $(document).ready(function() {
+
     // Função para mostrar/ocultar campos com base nas seleções
     function toggleFields() {
         var andamento = $("#tipo_andamento");
         var situacao = $("#sit");
         var pago = $("#pag");
+        var fun = $("#func");
+        var loc = $("#loc");
         
-        if (andamento.val() === '2') { // = 'Encerrado'
+        if (andamento.val() === '3') { //  = 'Encerrado'
             $("#situacao_pagamento").show();
             if (situacao.val() === 'Com Pagamento') {
                 $("#valor_pago").show();
@@ -119,13 +137,45 @@
             // Limpa o valor inserido no campo "valor_pago" quando ele deixa de ser mostrado
             pago.val("");
         }
+
+        if(andamento.val() === '2'){ // = 'Encaminhamento'
+            $("#funcionario").show();
+            fun.prop('required', true);
+
+        }else {
+            $("#funcionario").hide();
+            fun.val("");
+            fun.prop('required', false);
+        }
+
+        if(andamento.val() === '2'){ // = 'Encaminhamento'
+            $("#localizacao_processo").show();
+            loc.prop('required', true);
+
+        }else {
+            $("#localizacao_processo").hide();
+            loc.val("");
+            loc.prop('required', false);
+        }
     }
         
         // Chame a função ao carregar a página
         toggleFields();
         
         // Adicione ouvintes de eventos para atualizar os campos quando as seleções mudarem
-        $("#tipo_andamento, #situacao_pagamento").on("change", toggleFields);
+        $("#tipo_andamento, #situacao_pagamento, #funcionario, #localizacao_processo").on("change", toggleFields);
+
+    // Para utilizar mácara de real maskMoney no campo total_pago
+    $('#pag').maskMoney({
+        thousands: '.',
+        decimal: ',',
+    });
+        
+    $('form').on('submit', function() {
+        // Remove a máscara monetária antes de enviar o formulário
+        var valor = $('#pag').maskMoney('unmasked')[0];
+        $('#pag').val(valor);
+    });
         
     });
 </script>
@@ -137,9 +187,7 @@
 <script>
     $(document).ready(function(){
         $('#pag').mask("000,000,000.00", {reverse: true});
-        $('#data_andamento').mask("00/00/0000");
-        $('#data_recebimento').mask("00/00/0000");
-        $('#data_prazo').mask("00/00/0000");
+
     })
 </script>
 
