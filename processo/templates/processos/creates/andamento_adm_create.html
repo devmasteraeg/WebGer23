@@ -45,21 +45,18 @@
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encaminhamento' for selecionado -->
                     <div class="col" style="display: none;" id="funcionario">
-                        <label for="funcionario">Funcionario<b>*</b></label>
-                        <select name="funcionario" id="funcionario">
+                        <label for="funcionario">Funcionario</label>
+                        <select name="funcionario" id="func" class="form-control">
+                            <option value="">---------</option>
                             {% for funcionario in funcionarios %}
                                 <option value="{{ funcionario.get_full_name }}">{{ funcionario.get_full_name }}</option>
                                 {% endfor%}
                             </select>
-                            
-                            <!-- {% render_field form.funcionario class="form-control" id="funcionario" %} -->
-
-                        <!-- {% render_field form.funcionario class="form-control" id="funcionario" %} -->
                     </div>
                     <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encaminhamento' for selecionado -->
                     <div class="col" style="display: none;" id="localizacao_processo">
-                        <label for="localizacao_processo">Localização Processo<b>*</b></label>
-                        {% render_field form.localizacao_processo class="form-control" id="localizacao_processo" %}
+                        <label for="localizacao_processo">Localização Processo</label>
+                        {% render_field form.localizacao_processo class="form-control" id="loc" %}
                     </div>
                 </div>
                 <br>
@@ -126,6 +123,8 @@
         var andamento = $("#tipo_andamento");
         var situacao = $("#sit");
         var pago = $("#pag");
+        var fun = $("#func");
+        var loc = $("#loc");
         
         if (andamento.val() === '3') { //  = 'Encerrado'
             $("#situacao_pagamento").show();
@@ -158,14 +157,22 @@
 
         if(andamento.val() === '2'){ // = 'Encaminhamento'
             $("#funcionario").show();
+            fun.prop('required', true);
+
         }else {
             $("#funcionario").hide();
+            fun.val("");
+            fun.prop('required', false);
         }
 
         if(andamento.val() === '2'){ // = 'Encaminhamento'
             $("#localizacao_processo").show();
+            loc.prop('required', true);
+
         }else {
             $("#localizacao_processo").hide();
+            loc.val("");
+            loc.prop('required', false);
         }
     }
         
@@ -173,7 +180,7 @@
         toggleFields();
         
         // Adicione ouvintes de eventos para atualizar os campos quando as seleções mudarem
-        $("#tipo_andamento, #situacao_pagamento").on("change", toggleFields);
+        $("#tipo_andamento, #situacao_pagamento, #funcionario, #localizacao_processo").on("change", toggleFields);
 
     // Para utilizar mácara de real maskMoney no campo total_pago
     $('#pag').maskMoney({

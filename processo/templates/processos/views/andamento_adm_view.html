@@ -45,6 +45,18 @@
                                     <input type="text" class="form-control" value="{{ atributo.valor_pago }}" readonly>
                                 </div>
                             {% endif %}
+                            {% if atributo.funcionario %}
+                                <div class="col">
+                                    <label for="funcionario">Funcionário</label>
+                                    <input type="text" class="form-control" value="{{ atributo.funcionario }}" readonly>
+                                </div>
+                            {% endif %}
+                            {% if atributo.localizacao_processo %}
+                            <div class="col">
+                                <label for="localizacao_processo">Localização do Processo</label>
+                                <input type="text" class="form-control" value="{{ atributo.localizacao_processo }}" readonly>
+                            </div>
+                        {% endif %}
                         </div>
                         <br>
                         <div class="row">
