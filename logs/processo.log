@@ -222,3 +222,7 @@ Level: INFO | Data: 2023-11-13 10:34:08,352 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-11-13 10:58:37,701 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-11-13 11:20:27,586 | Modulo: signals | Aviso: Usuario - "None", realizou "Logout" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-11-13 11:20:29,863 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 15:21:33,137 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 15:21:38,278 | Modulo: signals | Aviso: Usuario - "thiago", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 15:33:07,365 | Modulo: signals | Aviso: Usuario - "thiago", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 15:33:10,721 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1

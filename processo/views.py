@@ -731,4 +731,17 @@ class AndamentoAdmListUpdate(ListView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         return context
 
-    
+class ProcessoAdmExecutadoList(ListView):
+    model = ProcessoAdm
+    template_name = 'processos/lists/processo_adm_executado_list.html'
+
+    def get_context_data(self, **kwargs):
+
+        Processos = ProcessoAdm.objects.all()
+
+        context = super().get_context_data(**kwargs)
+        context['processos'] = Processos
+
+        return context
+
+        

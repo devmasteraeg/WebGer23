@@ -81,6 +81,14 @@
                     </ul>
                   </li>
 
+                  {% if user.is_superuser %} <!-- Se o usuário for um SuperUsuario(administrador) consegue ver os 'relatórios fixos' no menu-->
+                  <div>
+                    <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-exec-list' %}" role="button" aria-expanded="false"><img src="{% static 'img/adm.png' %}" width="25"> Relatórios Fixados </a>
+                  </div>
+                  {% endif %}
+
+
+
                 {% endif %}
                 <!-- Fim da autenticação -->
 
@@ -94,6 +102,8 @@
     {% block conteudo %}    
     <!-- Imagem tela cheia página principal -->
     <div id="pagina-principal">
+
+
 
     </div>
     {% endblock %}
