@@ -193,3 +193,32 @@ Level: ERROR | Data: 2023-11-10 16:46:36,437 | Modulo: views | Aviso: Erro ao cr
 Level: ERROR | Data: 2023-11-10 16:47:10,218 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [Errno 2] No such file or directory: 'media/arquivo/PDF1.docx'
 Level: ERROR | Data: 2023-11-10 16:53:38,212 | Modulo: views | Aviso: Erro ao mesclar PDF - View: MesclarPDFsView - Erro: [Errno 2] No such file or directory: '\\\\10.0.0.3\\webger23\\arquivo\\RECURSO_AO_REPASSE_DO_INDICE_DE_ICMS_-_SÃO_GABRIEL_DO_OESTE_-_MS__ok_revisado_1_KHWbXoX.pdf'
 Level: INFO | Data: 2023-11-10 17:06:31,496 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 07:43:25,277 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-11-13 07:44:17,047 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [WinError 1326] Nome de usuário ou senha incorretos: '\\\\10.0.0.3\\webger23\\'
+Level: ERROR | Data: 2023-11-13 07:44:32,071 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [WinError 1326] Nome de usuário ou senha incorretos: '\\\\10.0.0.3\\webger23\\'
+Level: INFO | Data: 2023-11-13 07:45:04,949 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 07:45:07,700 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 07:45:18,702 | Modulo: signals | Aviso: Usuario - "admin", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 07:45:28,704 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: ERROR | Data: 2023-11-13 07:46:09,923 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [WinError 1326] Nome de usuário ou senha incorretos: '\\\\10.0.0.3\\webger23\\'
+Level: ERROR | Data: 2023-11-13 07:46:42,385 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: [WinError 1326] Nome de usuário ou senha incorretos: '\\\\10.0.0.3\\webger23\\'
+Level: ERROR | Data: 2023-11-13 10:25:26,923 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: ERRO:  coluna "localizacao_processo" da relação "processo_andamentoadm" não existe
+LINE 1: ...ento", "valor_pago", "data_prazo", "funcionario", "localizac...
+                                                             ^
+
+Level: ERROR | Data: 2023-11-13 10:25:44,644 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: ERRO:  coluna "localizacao_processo" da relação "processo_andamentoadm" não existe
+LINE 1: ...ento", "valor_pago", "data_prazo", "funcionario", "localizac...
+                                                             ^
+
+Level: ERROR | Data: 2023-11-13 10:28:39,456 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: ERRO:  coluna "localizacao_processo" da relação "processo_andamentoadm" não existe
+LINE 1: ...ento", "valor_pago", "data_prazo", "funcionario", "localizac...
+                                                             ^
+
+Level: ERROR | Data: 2023-11-13 10:30:13,836 | Modulo: views | Aviso: Erro ao criar objeto - View: AndamentoAdmCreate - Erro: ERRO:  coluna "localizacao_processo" da relação "processo_andamentoadm" não existe
+LINE 1: ...ento", "valor_pago", "data_prazo", "funcionario", "localizac...
+                                                             ^
+
+Level: INFO | Data: 2023-11-13 10:34:08,352 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 10:58:37,701 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 11:20:27,586 | Modulo: signals | Aviso: Usuario - "None", realizou "Logout" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 11:20:29,863 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1

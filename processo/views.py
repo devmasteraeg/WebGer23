@@ -10,6 +10,8 @@ from django.urls import reverse, reverse_lazy # Módulo para reverter para a url
 
 import datetime # Módulo para datas
 
+from django.contrib.auth.models import User
+
 import os # Módulo para trabalhar com pastas e arquivos
 
 from docx2pdf import convert # Módulo para converter .docx em pdf
@@ -134,7 +136,7 @@ class ProcessoAdmCreate(CreateView):
 class AndamentoAdmCreate(CreateView):  
     model = AndamentoAdm
     template_name = 'processos/creates/andamento_adm_create.html'
-    fields = ['data_andamento', 'tipo_andamento', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
+    fields = ['data_andamento', 'tipo_andamento', 'funcionario', 'localizacao_processo', 'situacao_pagamento', 'valor_pago', 'data_prazo', 'data_recebimento', 'complemento', 'arquivo']
     success_url = reverse_lazy('proc-adm-list')
 
     def form_valid(self, form):
@@ -149,7 +151,7 @@ class AndamentoAdmCreate(CreateView):
             form.instance.usuario_criador = self.request.user 
 
             # Preencher o atributo 'funcionario' com o nome completo do usuário logado.
-            form.instance.funcionario = self.request.user.get_full_name()
+            # form.instance.funcionario = self.request.user.get_full_name()
 
             pythoncom.CoInitialize() # Para não ocorrer o erro  "Exception Value:(-2147221008, 'CoInitialize não foi chamado.', None, None)" quando utilizado código para converter arquivos
 
@@ -218,6 +220,8 @@ class AndamentoAdmCreate(CreateView):
 
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+
+        context['funcionarios'] = User.objects.all()  # Criei um iterador 'funcionarios' que contem os registros dos usuários para criar o campo select
 
         return context
     

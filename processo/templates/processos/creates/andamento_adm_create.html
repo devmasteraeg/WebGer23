@@ -43,6 +43,24 @@
                         <label for="valor_pago">Total do Valor Pago <b>*</b></label>
                         {% render_field form.valor_pago class="mask-money form-control" type="text" maxlength="14" id="pag" placeholder="R$"%}
                     </div>
+                    <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encaminhamento' for selecionado -->
+                    <div class="col" style="display: none;" id="funcionario">
+                        <label for="funcionario">Funcionario<b>*</b></label>
+                        <select name="funcionario" id="funcionario">
+                            {% for funcionario in funcionarios %}
+                                <option value="{{ funcionario.get_full_name }}">{{ funcionario.get_full_name }}</option>
+                                {% endfor%}
+                            </select>
+                            
+                            <!-- {% render_field form.funcionario class="form-control" id="funcionario" %} -->
+
+                        <!-- {% render_field form.funcionario class="form-control" id="funcionario" %} -->
+                    </div>
+                    <!-- O campo a baixo só ira aparecer para o usuário se no campo anterior, o valor 'Encaminhamento' for selecionado -->
+                    <div class="col" style="display: none;" id="localizacao_processo">
+                        <label for="localizacao_processo">Localização Processo<b>*</b></label>
+                        {% render_field form.localizacao_processo class="form-control" id="localizacao_processo" %}
+                    </div>
                 </div>
                 <br>
                 <div class="row">
@@ -109,7 +127,7 @@
         var situacao = $("#sit");
         var pago = $("#pag");
         
-        if (andamento.val() === '2') { // '1' = 'Encerrado'
+        if (andamento.val() === '3') { //  = 'Encerrado'
             $("#situacao_pagamento").show();
             if (situacao.val() === 'Com Pagamento') {
                 $("#valor_pago").show();
@@ -136,6 +154,18 @@
 
             // Limpa o valor inserido no campo "valor_pago" quando ele deixa de ser mostrado
             pago.val("");
+        }
+
+        if(andamento.val() === '2'){ // = 'Encaminhamento'
+            $("#funcionario").show();
+        }else {
+            $("#funcionario").hide();
+        }
+
+        if(andamento.val() === '2'){ // = 'Encaminhamento'
+            $("#localizacao_processo").show();
+        }else {
+            $("#localizacao_processo").hide();
         }
     }
         
