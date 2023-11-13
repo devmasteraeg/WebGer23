@@ -23,7 +23,7 @@
                                 <th>Empresa</th>
                                 <th>Número do Processo</th>
                                 <th>Valor Crédito</th>
-                                <th>Data</th>
+                                <!-- <th>Data</th> -->
                             </tr>
                         </thead>
                         <tbody>
@@ -32,8 +32,8 @@
                                 <tr>
                                     <td> {{ processo.nome_contribuinte }} </td>
                                     <td> {{ processo.numero }} </td>
-                                    <td> {{ processo.valor_credito }} </td>
-                                    <td> {{ processo. }} </td>
+                                    <td> R$ {{ processo.valor_credito }} </td>
+                                    <!-- <td> {{ processo. }} </td> -->
                                 </tr>
                             {% endfor %}
                         </tbody>
@@ -65,17 +65,17 @@
                 "pageLength": 5,
                 "language": {
                     "decimal": "",
-                    "emptyTable": "Nenhum andamento registrado",
-                    "info": "Andamentos Registrados: _TOTAL_",
-                    "infoEmpty": "Andamentos Registrados: 0",
+                    "emptyTable": "Nenhum processo executado",
+                    "info": "Total Executados: _TOTAL_",
+                    "infoEmpty": "Total Executados: 0",
                     "infoFiltered": "",
                     "infoPostFix": "",
                     "thousands": ",",
-                    "lengthMenu": "Mostrar _MENU_ andamentos",
+                    "lengthMenu": "Mostrar _MENU_ processos",
                     "loadingRecords": "A carregar dados...",
                     "processing": "A processar...",
                     "search": "Buscar:",
-                    "zeroRecords": "Nenhum andamento encontrado",
+                    "zeroRecords": "Nenhum processo encontrado",
                     "paginate": {
                         "first": "Primeiro",
                         "last": "Último",
