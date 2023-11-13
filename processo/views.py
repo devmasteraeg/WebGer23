@@ -740,13 +740,20 @@ class ProcessoAdmExecutadoList(ListView):
         processos = ProcessoAdm.objects.all()
 
         lista_processos_execucao = []
+        guarda_credito = []
         for proc in processos:
             em_execucao = proc.andamentoadm_set.filter(tipo_andamento=4) # número do id do andamento 'execução'
             if(em_execucao): 
                 lista_processos_execucao.append(proc)
-    
+                guarda_credito.append(proc.valor_credito)
+
+        # qtd_processos = len(lista_processos_execucao)
+        total_credito = sum(guarda_credito)
+
         context = super().get_context_data(**kwargs)
         context['processo_execucao'] = lista_processos_execucao
+        # context['qtd_processos'] = qtd_processos
+        context['total_credito'] = total_credito
 
         return context
 
