@@ -66,13 +66,13 @@ class TipoAndamentoAdm(Base):
         return self.tipo_andamento
     
 class AndamentoAdm(Base):
-    # andamentos = (
-    # ('Abertura', 'Abertura'), ('Parecer Fiscal', 'Parecer Fiscal'), ('Decisão 1ª Instância', 'Decisão 1ª Instância'), ('Suspenso Para Fiscalização Futura', 'Suspenso Para Fiscalização Futura'), ('Auto de Infração e Termo de Intimação - AITI.', 'Auto de Infração e Termo de Intimação - AITI.'), ('Termo de Intimação Fiscal - TIF.-tif.', 'Termo de Intimação Fiscal - TIF.'), ('Decisão de 2ª Instância', 'Decisão de 2ª Instância'), ('Cobrança de Documentação', 'Cobrança de Documentação'), ('Recurso Voluntário', 'Recurso Voluntário'), ('Fim do Contrato com a Assessoria', 'Fim do Contrato com a Assessoria'), ('Manifestação', 'Manifestação'), ('Recebimento do AR', 'Recebimento do AR'), ('Despacho', 'Despacho'), ('Aguardando Pagamento', 'Aguardando Pagamento'), ('Apresentação de Documentação para Análise', 'Apresentação de Documentação para Análise'), ('Aguardando AR', 'Aguardando AR'), ('Ofício', 'Ofício'), ('Revelia', 'Revelia'), ('Execução', 'Execução'), ('Confissão de Dívida (Parcelamento)', 'Confissão de Dívida (Parcelamento)'), ('Reenvio de Documento', 'Reenvio de Documento'), ('Parecer Juridico', 'Parecer Juridico'), ('Certidão', 'Certidão'), ('Encaminhado', 'Encaminhado'), ('Encerrado', 'Encerrado'),
-    # )
-
     # Choices
     situacao = (
         ('Sem Pagamento', 'Sem Pagamento'), ('Com Pagamento', 'Com Pagamento'),
+    )
+
+    localizacao = (
+        ('Na Aeg', 'Na Aeg'), ('No Município', 'No Município'), ('No Fórum', 'No Fórum'),
     )
 
     processo = models.ForeignKey(ProcessoAdm, on_delete=models.CASCADE) # Relacionamento 'One to Many' (um para muitos)
@@ -82,7 +82,7 @@ class AndamentoAdm(Base):
     valor_pago = models.DecimalField(decimal_places=2, max_digits=11, blank=True, null=True)
     data_prazo = models.DateField(blank=True, null=True)
     funcionario = models.CharField(max_length=50, blank=True, null=True)
-    localizacao_processo = models.CharField(max_length=50, blank=True, null=True)
+    localizacao_processo = models.CharField(max_length=50, choices=localizacao, blank=True, null=True)
     data_recebimento = models.DateField(blank=True, null=True)
     complemento = models.CharField(max_length=150, blank=True, null=True)
     arquivo = models.FileField(upload_to='arquivo/', verbose_name='Arquivo', blank=True) 
