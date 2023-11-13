@@ -221,7 +221,7 @@ class AndamentoAdmCreate(CreateView):
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
 
-        context['funcionarios'] = User.objects.all()  # Criei um iterador 'funcionarios' que contem os registros dos usuários para criar o campo select
+        context['funcionarios'] = User.objects.filter(is_staff=True)  # Criei um iterador 'funcionarios' para preencher o select do campo funcionario, apenas com usuarios Staff(membro da equipe).
 
         return context
     
