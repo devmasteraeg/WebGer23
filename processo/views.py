@@ -737,10 +737,16 @@ class ProcessoAdmExecutadoList(ListView):
 
     def get_context_data(self, **kwargs):
 
-        Processos = ProcessoAdm.objects.all()
+        processos = ProcessoAdm.objects.all()
 
+        lista_processos_execucao = []
+        for proc in processos:
+            em_execucao = proc.andamentoadm_set.filter(tipo_andamento=4) 
+            if(em_execucao): 
+                lista_processos_execucao.append(proc)
+    
         context = super().get_context_data(**kwargs)
-        context['processos'] = Processos
+        context['processo_execucao'] = lista_processos_execucao
 
         return context
 

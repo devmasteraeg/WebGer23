@@ -226,3 +226,31 @@ Level: INFO | Data: 2023-11-13 15:21:33,137 | Modulo: signals | Aviso: Usuario -
 Level: INFO | Data: 2023-11-13 15:21:38,278 | Modulo: signals | Aviso: Usuario - "thiago", realizou "Login" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-11-13 15:33:07,365 | Modulo: signals | Aviso: Usuario - "thiago", realizou "Logout" a partir do endereco IP: 127.0.0.1
 Level: INFO | Data: 2023-11-13 15:33:10,721 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 16:27:21,733 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-13 16:36:00,968 | Modulo: views | Aviso: <QuerySet [<ProcessoAdm: 5353>, <ProcessoAdm: 1313>]>
+Level: INFO | Data: 2023-11-13 16:36:50,773 | Modulo: views | Aviso: 5353
+Level: INFO | Data: 2023-11-13 16:36:50,773 | Modulo: views | Aviso: 1313
+Level: INFO | Data: 2023-11-13 16:37:54,893 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:37:54,908 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:38:21,466 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:38:21,466 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:40:20,278 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:40:20,278 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:42:06,879 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:42:06,879 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:49:13,025 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>]>
+Level: INFO | Data: 2023-11-13 16:49:13,025 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>]>
+Level: INFO | Data: 2023-11-13 16:49:13,025 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:49:13,025 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:49:39,529 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>]>
+Level: INFO | Data: 2023-11-13 16:49:39,529 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>]>
+Level: INFO | Data: 2023-11-13 16:49:39,545 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:49:39,545 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:49:40,804 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>]>
+Level: INFO | Data: 2023-11-13 16:49:40,804 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>]>
+Level: INFO | Data: 2023-11-13 16:49:40,804 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:49:40,804 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:49:51,385 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 3 Andamento: Execução Arquivo:  Ativo: True>]>
+Level: INFO | Data: 2023-11-13 16:49:51,391 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>]>
+Level: INFO | Data: 2023-11-13 16:49:51,393 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 16:49:51,394 | Modulo: views | Aviso: <QuerySet []>
