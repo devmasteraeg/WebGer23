@@ -687,6 +687,7 @@ class ProcessoAdmList(ListView):
         processos = ProcessoAdm.objects.all()
 
         processos_executados = []
+        total_credito = []
 
         for processo in processos:
             armazena_andamentos_id = []
@@ -701,6 +702,7 @@ class ProcessoAdmList(ListView):
 
                 if andamento_atual.tipo_andamento.id == 4: # Id do tipo andamento = Execução
                     processos_executados.append(processo)
+                    total_credito.append(processo.valor_credito)
             else:
                 andamento_atual_id = 0
 
@@ -740,6 +742,7 @@ class ProcessoAdmList(ListView):
         context['recebidos'] = len(processos_recebidos) 
 
         context['total_pago'] = sum(total_pago)
+        context['total_credito'] = sum(total_credito)
         
         return context
     

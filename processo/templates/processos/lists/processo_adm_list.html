@@ -33,15 +33,15 @@
                     <div class="col">
                         {% if user.is_staff %}
                             <h6>Executados</h6>
-                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-exec-list' %}" role="button" aria-expanded="false"><h4>{{ executados }}</h4></a>
-                            <h6>R$ {{ total_credito }}</h6>
+                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-exec-list' %}" role="button" aria-expanded="false"><h4 style="color: rgb(207, 0, 0)">{{ executados }}</h4></a>
+                            <h6 style="color: rgb(207, 0, 0)">R$ {{ total_credito }}</h6>
                         {% endif %}
                     </div>
                     <div class="col">
                         {% if user.is_staff %}
                             <h6>Recebidos</h6>
-                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-recebido-list' %}" role="button" aria-expanded="false"><h4>{{ recebidos }}</h4></a>
-                            <h6>R$ {{ total_pago }}</h6>
+                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-recebido-list' %}" role="button" aria-expanded="false"><h4 style="color: rgb(0, 207, 104)">{{ recebidos }}</h4></a>
+                            <h6 style="color: rgb(0, 207, 104)">R$ {{ total_pago }}</h6>
                         {% endif %}
                     </div>
                     <div class="col">
