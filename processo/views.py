@@ -713,6 +713,7 @@ class ProcessoAdmList(ListView):
     #    -----------------------------------------------------------------------------------------------------
 
         processos_recebidos = []
+        total_pago = []
 
         for processo in processos:
             armazena_andamentos_id = []
@@ -727,6 +728,7 @@ class ProcessoAdmList(ListView):
 
                 if andamento_atual.tipo_andamento.id == 3 and andamento_atual.situacao_pagamento == 'Com Pagamento': # Id do tipo andamento = Encerrado
                     processos_recebidos.append(processo)
+                    total_pago.append(andamento_atual.valor_pago)
             else:
                 armazena_andamentos_id.append(0) # Para não ocorrer erro de sequência vazia ao executar o max com a lista vazia.
 
@@ -736,6 +738,8 @@ class ProcessoAdmList(ListView):
         context['arquivados'] = len(processos_arquivados)
         context['executados'] = len(processos_executados)
         context['recebidos'] = len(processos_recebidos) 
+
+        context['total_pago'] = sum(total_pago)
         
         return context
     
