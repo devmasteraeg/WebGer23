@@ -686,27 +686,33 @@ class ProcessoAdmList(ListView):
     def get_context_data(self, **kwargs):
         processos = ProcessoAdm.objects.all()
 
-        lista_processos_execucao = []
-        lista_processos_recebidos = []
+        processos_executados = []
+        # processos_recebidos = []
 
-        for proc in processos:
-            if proc.ativo == True:
-                em_execucao = proc.andamentoadm_set.filter(tipo_andamento=4) # número do id do andamento 'execução'
-                if em_execucao: 
-                    lista_processos_execucao.append(proc)
-                
-                andamentos = proc.andamentoadm_set.all()
-                for andamento in andamentos:
-                    if andamento.valor_pago > 0:
-                        lista_processos_recebidos.append(proc)
+        for processo in processos:
+            armazena_andamentos_id = []
+            if processo.ativo == True:
+                andamentos_do_processo = processo.andamentoadm_set.all()
+                for andamento in andamentos_do_processo:
+                    armazena_andamentos_id.append(andamento.id)
 
+            if armazena_andamentos_id:
+                andamento_atual_id = max(armazena_andamentos_id)
+                andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id)
 
+                if andamento_atual.tipo_andamento.id == 4: # Id do tipo andamento = Execução
+                    processos_executados.append(processo)
+            else:
+                andamento_atual_id = 0
+
+            armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
+       
         arquivados = processos.filter(ativo=False)
 
         context = super().get_context_data(**kwargs)
         context['arquivados'] = len(arquivados)
-        context['executados'] = len(lista_processos_execucao)
-        context['recebidos'] = len(lista_processos_recebidos) 
+        context['executados'] = len(processos_executados)
+        # context['recebidos'] = len(processos_recebidos) 
         
         return context
     
@@ -780,12 +786,16 @@ class ProcessoAdmExecutadoList(ListView):
                 for andamento in andamentos_do_processo:
                     armazena_andamentos_id.append(andamento.id)
             
-            andamento_atual_id = max(armazena_andamentos_id)
-            andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id)
+            if armazena_andamentos_id:
+                andamento_atual_id = max(armazena_andamentos_id)
+                andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id)
 
-            if andamento_atual.tipo_andamento.id == 4: # Id do tipo andamento = Execução
-                processos_executados.append(processo)
-                total_credito.append(processo.valor_credito)
+                if andamento_atual.tipo_andamento.id == 4: # Id do tipo andamento = Execução
+                    processos_executados.append(processo)
+                    total_credito.append(processo.valor_credito)
+            else:
+                armazena_andamentos_id.append(0)
+
 
             armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
 
