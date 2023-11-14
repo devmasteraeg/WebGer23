@@ -27,13 +27,14 @@
                     <div class="col">
                         {% if user.is_staff %}
                             <h6>Arquivados</h6>
-                            <a href="{% url 'proc-adm-arquivado-list' %}"><img src="{% static 'img/arquivado2.png' %}" width="35"></a>
+                            <a class="nav-link" href="{% url 'proc-adm-arquivado-list' %}"><h4>{{ arquivados }}</h4></a>
                         {% endif %}
                     </div>
                     <div class="col">
-                        <h6>Executados</h6>
-                        <!-- <h4>{{ qtd_processos }}</h4> -->
-                        <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-exec-list' %}" role="button" aria-expanded="false"><h4>{{ qtd_processos }}</h4></a>
+                        {% if user.is_staff %}
+                            <h6>Executados</h6>
+                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-exec-list' %}" role="button" aria-expanded="false"><h4>{{ qtd_processos }}</h4></a>
+                        {% endif %}
                     </div>
                     <div class="col">
                          <!-- Usado para ocupar espaço -->

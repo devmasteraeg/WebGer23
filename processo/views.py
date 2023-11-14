@@ -693,8 +693,12 @@ class ProcessoAdmList(ListView):
             if(em_execucao): 
                 lista_processos_execucao.append(proc)
 
+        arquivados = processos.filter(ativo=False)
+
         context = super().get_context_data(**kwargs)
         context['qtd_processos'] = len(lista_processos_execucao)
+        context['arquivados'] = len(arquivados)
+        
 
         return context
     
