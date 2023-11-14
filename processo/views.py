@@ -687,7 +687,6 @@ class ProcessoAdmList(ListView):
         processos = ProcessoAdm.objects.all()
 
         processos_executados = []
-        processos_recebidos = []
 
         for processo in processos:
             armazena_andamentos_id = []
@@ -706,11 +705,35 @@ class ProcessoAdmList(ListView):
                 andamento_atual_id = 0
 
             armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
-       
-        arquivados = processos.filter(ativo=False)
+
+    #    -----------------------------------------------------------------------------------------------------
+
+        processos_arquivados = processos.filter(ativo=False)
+
+    #    -----------------------------------------------------------------------------------------------------
+
+        processos_recebidos = []
+
+        for processo in processos:
+            armazena_andamentos_id = []
+            if processo.ativo == True:
+                andamentos_do_processo = processo.andamentoadm_set.all()
+                for andamento in andamentos_do_processo:
+                    armazena_andamentos_id.append(andamento.id)
+
+            if armazena_andamentos_id:
+                andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior ID, que no caso é o último criado
+                andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do último id
+
+                if andamento_atual.tipo_andamento.id == 3 and andamento_atual.situacao_pagamento == 'Com Pagamento': # Id do tipo andamento = Encerrado
+                    processos_recebidos.append(processo)
+            else:
+                armazena_andamentos_id.append(0) # Para não ocorrer erro de sequência vazia ao executar o max com a lista vazia.
+
+            armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
 
         context = super().get_context_data(**kwargs)
-        context['arquivados'] = len(arquivados)
+        context['arquivados'] = len(processos_arquivados)
         context['executados'] = len(processos_executados)
         context['recebidos'] = len(processos_recebidos) 
         
@@ -813,6 +836,7 @@ class ProcessoAdmRecebidoList(ListView):
 
         processos_recebidos = []
         total_pago = []
+
         for processo in processos:
             armazena_andamentos_id = []
             if processo.ativo == True:
