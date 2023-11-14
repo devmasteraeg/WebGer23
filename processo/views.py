@@ -683,6 +683,21 @@ class ProcessoAdmList(ListView):
     def get_queryset(self):
         return ProcessoAdm.objects.filter(ativo=True)
     
+    def get_context_data(self, **kwargs):
+        processos = ProcessoAdm.objects.all()
+
+        lista_processos_execucao = []
+
+        for proc in processos:
+            em_execucao = proc.andamentoadm_set.filter(tipo_andamento=4) # número do id do andamento 'execução'
+            if(em_execucao): 
+                lista_processos_execucao.append(proc)
+
+        context = super().get_context_data(**kwargs)
+        context['qtd_processos'] = len(lista_processos_execucao)
+
+        return context
+    
 class ProcessoAdmArquivadoList(ListView):
     model = ProcessoAdm
     template_name = 'processos/lists/processo_adm_arquivado_list.html'

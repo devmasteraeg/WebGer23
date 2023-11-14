@@ -254,3 +254,4 @@ Level: INFO | Data: 2023-11-13 16:49:51,385 | Modulo: views | Aviso: <QuerySet [
 Level: INFO | Data: 2023-11-13 16:49:51,391 | Modulo: views | Aviso: <QuerySet [<AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>, <AndamentoAdm: Processo: 4/5645 Andamento: Execução Arquivo:  Ativo: True>]>
 Level: INFO | Data: 2023-11-13 16:49:51,393 | Modulo: views | Aviso: <QuerySet []>
 Level: INFO | Data: 2023-11-13 16:49:51,394 | Modulo: views | Aviso: <QuerySet []>
+Level: INFO | Data: 2023-11-13 20:39:27,264 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
