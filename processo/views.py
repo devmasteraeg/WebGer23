@@ -736,13 +736,39 @@ class ProcessoAdmList(ListView):
 
             armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
 
+    #    -----------------------------------------------------------------------------------------------------
+
+        processos_em_andamento = []
+        total_credito_geral = []
+
+        for processo in processos:
+            armazena_andamentos_id = []
+            if processo.ativo == True:
+                andamentos_do_processo = processo.andamentoadm_set.all()
+                for andamento in andamentos_do_processo:
+                    armazena_andamentos_id.append(andamento.id)
+
+            if armazena_andamentos_id:
+                andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior ID, que no caso é o último criado
+                andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do último id
+
+                if andamento_atual.tipo_andamento.id != 3 and andamento_atual.tipo_andamento.id != 4: 
+                    processos_em_andamento.append(processo)
+                    total_credito_geral.append(processo.valor_credito)
+            else:
+                armazena_andamentos_id.append(0) # Para não ocorrer erro de sequência vazia ao executar o max com a lista vazia.
+
+            armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
+
         context = super().get_context_data(**kwargs)
         context['arquivados'] = len(processos_arquivados)
         context['executados'] = len(processos_executados)
         context['recebidos'] = len(processos_recebidos) 
+        context['andamentos'] = len(processos_em_andamento)
 
         context['total_pago'] = sum(total_pago)
         context['total_credito'] = sum(total_credito)
+        context['total_credito_geral'] = sum(total_credito_geral)
         
         return context
     
@@ -869,3 +895,38 @@ class ProcessoAdmRecebidoList(ListView):
 
         return context
 
+class ProcessoAdmAndamentoList(ListView):
+    model = ProcessoAdm
+    template_name = 'processos/lists/processo_adm_andamento_list.html'
+
+
+    def get_context_data(self, **kwargs):
+        processos = ProcessoAdm.objects.all()
+
+        processos_em_andamento = []
+        total_credito_geral = []
+        
+        for processo in processos:
+                armazena_andamentos_id = []
+                if processo.ativo == True:
+                    andamentos_do_processo = processo.andamentoadm_set.all()
+                    for andamento in andamentos_do_processo:
+                        armazena_andamentos_id.append(andamento.id)
+
+                if armazena_andamentos_id:
+                    andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior ID, que no caso é o último criado
+                    andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do último id
+
+                    if andamento_atual.tipo_andamento.id != 3 and andamento_atual.tipo_andamento.id != 4: 
+                        processos_em_andamento.append(processo)
+                        total_credito_geral.append(processo.valor_credito)
+                else:
+                    armazena_andamentos_id.append(0) # Para não ocorrer erro de sequência vazia ao executar o max com a lista vazia.
+
+                armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
+
+        context = super().get_context_data(**kwargs)
+        context['processos_em_andamento'] = processos_em_andamento
+        context['total_credito_geral'] = sum(total_credito_geral)
+
+        return context

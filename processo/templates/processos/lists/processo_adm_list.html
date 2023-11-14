@@ -47,8 +47,8 @@
                     <div class="col">
                         {% if user.is_staff %}
                             <h6>Em Andamento</h6>
-                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-recebido-list' %}" role="button" aria-expanded="false"><h4 style="color: rgb(55, 0, 207)">{{ recebidos }}</h4></a>
-                            <h6 style="color: rgb(55, 0, 207)">R$ {{ total_pago }}</h6>
+                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-andamento-list' %}" role="button" aria-expanded="false"><h4 style="color: rgb(55, 0, 207)">{{ andamentos }}</h4></a>
+                            <h6 style="color: rgb(55, 0, 207)">R$ {{ total_credito_geral }}</h6>
                         {% endif %}
                     </div>
                     <div class="col">
