@@ -27,7 +27,7 @@
                     <div class="col">
                         {% if user.is_staff %}
                             <h6>Arquivados</h6>
-                            <a class="nav-link" href="{% url 'proc-adm-arquivado-list' %}"><h4>{{ arquivados }}</h4></a>
+                            <a class="nav-link" href="{% url 'proc-adm-arquivado-list' %}"><h4 style="color: rgb(207, 186, 0)">{{ arquivados }}</h4></a>
                         {% endif %}
                     </div>
                     <div class="col">
@@ -45,7 +45,11 @@
                         {% endif %}
                     </div>
                     <div class="col">
-                         <!-- Usado para ocupar espaço -->
+                        {% if user.is_staff %}
+                            <h6>Em Andamento</h6>
+                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-recebido-list' %}" role="button" aria-expanded="false"><h4 style="color: rgb(55, 0, 207)">{{ recebidos }}</h4></a>
+                            <h6 style="color: rgb(55, 0, 207)">R$ {{ total_pago }}</h6>
+                        {% endif %}
                     </div>
                     <div class="col">
                          <!-- Usado para ocupar espaço -->
