@@ -700,7 +700,6 @@ class ProcessoAdmList(ListView):
         context['qtd_processos'] = len(lista_processos_execucao)
         context['arquivados'] = len(arquivados)
         
-
         return context
     
 class ProcessoAdmArquivadoList(ListView):
