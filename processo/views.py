@@ -689,9 +689,10 @@ class ProcessoAdmList(ListView):
         lista_processos_execucao = []
 
         for proc in processos:
-            em_execucao = proc.andamentoadm_set.filter(tipo_andamento=4) # número do id do andamento 'execução'
-            if(em_execucao): 
-                lista_processos_execucao.append(proc)
+            if(proc.ativo == True):
+                em_execucao = proc.andamentoadm_set.filter(tipo_andamento=4) # número do id do andamento 'execução'
+                if(em_execucao): 
+                    lista_processos_execucao.append(proc)
 
         arquivados = processos.filter(ativo=False)
 
