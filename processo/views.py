@@ -755,22 +755,43 @@ class ProcessoAdmExecutadoList(ListView):
     template_name = 'processos/lists/processo_adm_executado_list.html'
 
     def get_context_data(self, **kwargs):
-
         processos = ProcessoAdm.objects.all()
 
         lista_processos_execucao = []
-        guarda_credito = []
+        total_credito = []
         for proc in processos:
             if(proc.ativo == True):
                 em_execucao = proc.andamentoadm_set.filter(tipo_andamento=4) # número do id do andamento 'execução'
                 if(em_execucao): 
                     lista_processos_execucao.append(proc)
-                    guarda_credito.append(proc.valor_credito)
+                    total_credito.append(proc.valor_credito)
 
         context = super().get_context_data(**kwargs)
         context['processo_execucao'] = lista_processos_execucao
-        context['total_credito'] = sum(guarda_credito)
+        context['total_credito'] = sum(total_credito)
 
         return context
 
-        
+class ProcessoAdmRecebidoList(ListView):
+    model = ProcessoAdm
+    template_name = 'processos/lists/processo_adm_recebido_list.html'
+
+    def get_context_data(self, **kwargs):
+        processos = ProcessoAdm.objects.all()
+
+        lista_processos_recebidos = []
+        total_pago = []
+        for proc in processos:
+            if(proc.ativo == True):
+                andamentos = proc.andamentoadm_set.all()
+                for andamento in andamentos:
+                    if(andamento.valor_pago > 0):
+                        lista_processos_recebidos.append(proc)
+                        total_pago.append(andamento.valor_pago)
+
+        context = super().get_context_data(**kwargs)
+        context['processos_recebidos'] = lista_processos_recebidos
+        context['total_pago'] = sum(total_pago)
+
+        return context
+

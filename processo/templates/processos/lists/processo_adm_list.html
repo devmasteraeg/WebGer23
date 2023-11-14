@@ -37,7 +37,15 @@
                         {% endif %}
                     </div>
                     <div class="col">
-                         <!-- Usado para ocupar espaço -->
+                        {% if user.is_staff %}
+                            <h6>Recebidos</h6>
+                            <a class="nav-link" id="texto-navbar-menu" href="{% url 'proc-adm-recebido-list' %}" role="button" aria-expanded="false"><h4>{{ qtd_processos }}</h4></a>
+                        {% endif %}
+                         
+
+
+
+                        
                     </div>
                     <div class="col">
                          <!-- Usado para ocupar espaço -->

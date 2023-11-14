@@ -21,6 +21,7 @@ from .views import ProcessoAdmArquivadoList
 from .views import AndamentoAdmList
 from .views import AndamentoAdmListUpdate
 from .views import ProcessoAdmExecutadoList
+from .views import ProcessoAdmRecebidoList
 
 urlpatterns = [
 
@@ -49,6 +50,7 @@ urlpatterns = [
     path('listar/processo-adm-arquivado/', ProcessoAdmArquivadoList.as_view(), name='proc-adm-arquivado-list'),
     path('listar/andamento-adm/<int:pk>', AndamentoAdmList.as_view(), name='andamento-adm-list'),
     path('listar/andamento-adm-editar/<int:pk>', AndamentoAdmListUpdate.as_view(), name='andamento-adm-list-update'),
-    path('visualizar/relatorios-fixados/', ProcessoAdmExecutadoList.as_view(), name='proc-adm-exec-list'),
+    path('listar/processo-adm-executado/', ProcessoAdmExecutadoList.as_view(), name='proc-adm-exec-list'),
+    path('listar/processo-adm-recebido/', ProcessoAdmRecebidoList.as_view(), name='proc-adm-recebido-list'),
 
 ]
