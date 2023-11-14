@@ -687,18 +687,26 @@ class ProcessoAdmList(ListView):
         processos = ProcessoAdm.objects.all()
 
         lista_processos_execucao = []
+        lista_processos_recebidos = []
 
         for proc in processos:
             if(proc.ativo == True):
                 em_execucao = proc.andamentoadm_set.filter(tipo_andamento=4) # número do id do andamento 'execução'
                 if(em_execucao): 
                     lista_processos_execucao.append(proc)
+                
+                andamentos = proc.andamentoadm_set.all()
+                for andamento in andamentos:
+                    if(andamento.valor_pago > 0):
+                        lista_processos_recebidos.append(proc)
+
 
         arquivados = processos.filter(ativo=False)
 
         context = super().get_context_data(**kwargs)
-        context['qtd_processos'] = len(lista_processos_execucao)
         context['arquivados'] = len(arquivados)
+        context['executados'] = len(lista_processos_execucao)
+        context['recebidos'] = len(lista_processos_recebidos) 
         
         return context
     
