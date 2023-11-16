@@ -902,7 +902,6 @@ class ProcessoAdmAndamentoList(ListView):
     model = ProcessoAdm
     template_name = 'processos/lists/processo_adm_andamento_list.html'
 
-
     def get_context_data(self, **kwargs):
         processos = ProcessoAdm.objects.all()
 
@@ -921,12 +920,20 @@ class ProcessoAdmAndamentoList(ListView):
                     andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
 
                     if andamento_atual.tipo_andamento.id != 3 and andamento_atual.tipo_andamento.id != 4: 
-                        processos_em_andamento.append(processo)
+                        # processos_em_andamento.append(processo)
                         total_credito_geral.append(processo.valor_credito)
+                        data_andamento = str(andamento_atual.data_andamento)
+                        ano, mes, dia = data_andamento.split("-") # Para converter data americana em brasileira
+                        data_andamento = f'{dia}/{mes}/{ano}'
+     
+                        tipo_andamento = [andamento_atual.tipo_andamento]
+                        processos_em_andamento.append((processo, data_andamento, tipo_andamento))
+
                 else:
                     armazena_andamentos_id.append(0) # Para não ocorrer erro de sequência vazia ao executar o max com a lista vazia.
 
                 armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
+        
 
         context = super().get_context_data(**kwargs)
         context['processos_em_andamento'] = processos_em_andamento
