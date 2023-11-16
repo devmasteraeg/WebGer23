@@ -752,7 +752,7 @@ class ProcessoAdmList(ListView):
                 andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior ID, que no caso é o último criado
                 andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do último id
 
-                if andamento_atual.tipo_andamento.id != 3 and andamento_atual.tipo_andamento.id != 4: 
+                if andamento_atual.tipo_andamento.id != 4 and andamento_atual.situacao_pagamento != 'Com Pagamento': 
                     processos_em_andamento.append(processo)
                     total_credito_geral.append(processo.valor_credito)
             else:
@@ -765,7 +765,6 @@ class ProcessoAdmList(ListView):
         context['executados'] = len(processos_executados)
         context['recebidos'] = len(processos_recebidos) 
         context['andamentos'] = len(processos_em_andamento)
-
         context['total_pago'] = sum(total_pago)
         context['total_credito'] = sum(total_credito)
         context['total_credito_geral'] = sum(total_credito_geral)
@@ -899,6 +898,9 @@ class ProcessoAdmRecebidoList(ListView):
         return context
 
 class ProcessoAdmAndamentoList(ListView):
+    """
+        Dash board mostrado no template 'lista de processos administrativos' com dado de quantidade e valor de crédito de processos com andamentos diferentes de 'Execução' e 'Recebidos(encerrado com pagamento)'
+    """
     model = ProcessoAdm
     template_name = 'processos/lists/processo_adm_andamento_list.html'
 
@@ -919,7 +921,7 @@ class ProcessoAdmAndamentoList(ListView):
                     andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
                     andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
 
-                    if andamento_atual.tipo_andamento.id != 3 and andamento_atual.tipo_andamento.id != 4: 
+                    if andamento_atual.tipo_andamento.id != 4 and andamento_atual.situacao_pagamento != 'Com Pagamento':
                         # processos_em_andamento.append(processo)
                         total_credito_geral.append(processo.valor_credito)
                         data_andamento = str(andamento_atual.data_andamento)
@@ -933,7 +935,6 @@ class ProcessoAdmAndamentoList(ListView):
                     armazena_andamentos_id.append(0) # Para não ocorrer erro de sequência vazia ao executar o max com a lista vazia.
 
                 armazena_andamentos_id.clear() # Limpa a lista de id para o próximo processo.
-        
 
         context = super().get_context_data(**kwargs)
         context['processos_em_andamento'] = processos_em_andamento
