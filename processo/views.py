@@ -800,6 +800,9 @@ class AndamentoAdmList(ListView):
         return context
 
 class AndamentoAdmListUpdate(ListView):
+    """
+        ListView do template que lista os andamentos do processo para editar, deletar e ver os andamentos.
+    """
     model = ProcessoAdm
     template_name = 'processos/lists/andamento_adm_list_update.html'
     
@@ -807,7 +810,7 @@ class AndamentoAdmListUpdate(ListView):
         pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
         
         processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
-        andamentos = processo.andamentoadm_set.filter(ativo=True)  # Pega todos os atributos do andamento, somente de andamentos ativos
+        andamentos = processo.andamentoadm_set.filter(ativo=True).order_by('id')  # Pega todos os atributos do andamento, somente de andamentos ativos
     
         return andamentos
     
@@ -828,7 +831,9 @@ class AndamentoAdmListUpdate(ListView):
             andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
             andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
             andamento_atual = andamento.tipo_andamento
-        
+        else:
+            andamento_atual = '' # Se não colocar uma string vazia, ele retorno erro de valor nesta variável
+
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         context['andamento_atual'] = andamento_atual
