@@ -77,7 +77,7 @@
                                         <th>Contribuinte</th>
                                         <th>CPF/CNPJ</th>
                                         {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                            <th>Criado por</th>
+                                            <th>Usuário</th>
                                             <th>Criado em</th>
                                         {% endif %}        
                                         <th>Ver/Editar/Deletar</th>
@@ -140,6 +140,7 @@
         $(document).ready(function(){
             $('#tabela-listar').DataTable({
                 responsive: true,
+                "ordering": false, // Remove as opções das colunas de ordenar a tabela.
                 // "bSort": false,
                 "aaSorting": [],
                 "pageLength": 5,

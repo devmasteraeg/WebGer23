@@ -681,7 +681,7 @@ class ProcessoAdmList(ListView):
 
     # Listar Apenas Processos Ativos
     def get_queryset(self):
-        return ProcessoAdm.objects.filter(ativo=True)
+        return ProcessoAdm.objects.filter(ativo=True).order_by('id')
     
     def get_context_data(self, **kwargs):
         processos = ProcessoAdm.objects.all()
@@ -810,13 +810,17 @@ class AndamentoAdmListUpdate(ListView):
         pk_processo = self.kwargs.get('pk') # Pega a pk(primary key) da URL, pk do processo
         
         processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
-        andamentos = processo.andamentoadm_set.filter(ativo=True).order_by('id')  # Pega todos os atributos do andamento, somente de andamentos ativos
-    
+        andamentos = processo.andamentoadm_set.filter(ativo=True).order_by('id')  # Pega todos os atributos do andamento, somente de andamentos ativos e ordena por número do ID
+
+        for indice, andamento in enumerate(andamentos): # Para numerar cada item da lista.
+            andamento.ordem = indice + 1
+
         return andamentos
     
     # Função para iterar com os dados do processo na lista de andamentos
     def get_context_data(self, **kwargs):
         armazena_andamentos_id = []
+        ordem = []
         
         processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
 
@@ -824,19 +828,25 @@ class AndamentoAdmListUpdate(ListView):
 
         andamentos = processo.andamentoadm_set.all()
 
+        contador = 0
+
         for andamento in andamentos:
             armazena_andamentos_id.append(andamento.id)
+            contador += 1
+            ordem.append(contador)
 
         if armazena_andamentos_id:
             andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
             andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
             andamento_atual = andamento.tipo_andamento
+            andamento_atual = str(andamento_atual).upper()
         else:
-            andamento_atual = '' # Se não colocar uma string vazia, ele retorno erro de valor nesta variável
+            andamento_atual = 'Nenhum andamento registrado'
 
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         context['andamento_atual'] = andamento_atual
+        context['ordem'] = ordem
 
         return context
 

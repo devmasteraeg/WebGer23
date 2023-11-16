@@ -26,13 +26,14 @@
                         <thead>
                             <tr class="table-secondary">
                                 <!-- <th>Processo</th> -->
+                                <th>Ordem</th>
                                 <th>Data</th>
                                 <th>Tipo</th>
                                 <th>Funcionário</th>
                                 <th>Localização</th>
                                 <th>Prazo</th>
                                 {% if user.is_staff %} <!--Membro da equipe = is_staff-->
-                                    <th>Criado por</th>
+                                    <th>Usuário</th>
                                     <th>Criado em</th>
                                 {% endif %}
                                     <th>Ver/Editar/Deletar</th> 
@@ -43,7 +44,7 @@
 
                             {% for andamento in object_list %}
                             <tr>
-                                <!-- <td>{{ andamento.processo }}</td> -->
+                                <td>{{ andamento.ordem }}</td>
                                 <td>{{ andamento.data_andamento|date:"d/m/Y" }}</td>
                                 <td><b>{{ andamento.tipo_andamento }}</b></td>
                                 {% if andamento.funcionario == Null %}
@@ -102,12 +103,9 @@
     <script>
         // Para transformar minha lista em um datatable
         $(document).ready(function(){
-            // $('#tabela-listar').DataTable();
-        
-            // });
-
             $('#tabela-listar-andamento').DataTable({
                 responsive: true,
+                "ordering": false, // Remove as opções das colunas de ordenar a tabela.
                 // "bSort": false,
                 "aaSorting": [],
                 "pageLength": 5,
