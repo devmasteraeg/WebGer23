@@ -255,3 +255,4 @@ Level: INFO | Data: 2023-11-13 16:49:51,391 | Modulo: views | Aviso: <QuerySet [
 Level: INFO | Data: 2023-11-13 16:49:51,393 | Modulo: views | Aviso: <QuerySet []>
 Level: INFO | Data: 2023-11-13 16:49:51,394 | Modulo: views | Aviso: <QuerySet []>
 Level: INFO | Data: 2023-11-13 20:39:27,264 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
+Level: INFO | Data: 2023-11-14 20:36:35,294 | Modulo: signals | Aviso: Usuario - "admin", realizou "Login" a partir do endereco IP: 127.0.0.1
