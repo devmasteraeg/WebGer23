@@ -812,7 +812,8 @@ class AndamentoAdmListUpdate(ListView):
         processo = ProcessoAdm.objects.get(pk=pk_processo)  # Pega o processo que possui a pk recebida (pk é a primary key do processo)
         andamentos = processo.andamentoadm_set.filter(ativo=True).order_by('id')  # Pega todos os atributos do andamento, somente de andamentos ativos e ordena por número do ID
 
-        for indice, andamento in enumerate(andamentos): # Para numerar cada item da lista.
+        # Para colocar o índice na coluna 'ordem' da lista.
+        for indice, andamento in enumerate(andamentos): 
             andamento.ordem = indice + 1
 
         return andamentos
@@ -820,7 +821,6 @@ class AndamentoAdmListUpdate(ListView):
     # Função para iterar com os dados do processo na lista de andamentos
     def get_context_data(self, **kwargs):
         armazena_andamentos_id = []
-        ordem = []
         
         processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
 
@@ -828,32 +828,35 @@ class AndamentoAdmListUpdate(ListView):
 
         andamentos = processo.andamentoadm_set.all()
 
-        contador = 0
+        encaminhados = []
 
         for andamento in andamentos:
             armazena_andamentos_id.append(andamento.id)
-            contador += 1
-            ordem.append(contador)
+            
+            if andamento.tipo_andamento.id == 2:
+                encaminhados.append(andamento)
+    
+        if encaminhados:
+            ultimo_encaminhado = encaminhados[-1]
+            funcionario = ultimo_encaminhado.funcionario
 
+        else:
+            for andamento in andamentos:
+                funcionario = andamento.usuario_criador.get_full_name
+                print(funcionario)
+        
         if armazena_andamentos_id:
             andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
-            andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
-
-            if andamento_atual.funcionario:
-                funcionario = andamento_atual.funcionario
-            else:
-                funcionario = andamento_atual.usuario_criador.get_full_name
-            
-
-            andamento_atual = andamento.tipo_andamento
+            andamento_atual_get = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
+            andamento_atual = andamento_atual_get.tipo_andamento
             andamento_atual = str(andamento_atual)
+
         else:
-            andamento_atual = 'Nenhum andamento registrado'
+            andamento_atual = ''
 
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         context['andamento_atual'] = andamento_atual
-        context['ordem'] = ordem
         context['funcionario'] = funcionario
 
         return context

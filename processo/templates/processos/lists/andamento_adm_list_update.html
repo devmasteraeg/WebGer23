@@ -18,14 +18,17 @@
                 <div class="row">
                     <div class="col">
                         {% for atributo in dados_processo %}
-                            <h5>Processo: {{ atributo.numero }}</h5>
+                            <h5>Processo: </h5>
+                            <h6>{{ atributo.numero }}</h6>
                         {% endfor %}
                     </div>
                     <div class="col">
-                        <h5>Andamento Atual: {{ andamento_atual }}</h5>
+                        <h5>Andamento Atual:</h5>
+                        <h6>{{ andamento_atual }}</h6>
                     </div>
                     <div class="col">
-                        <h5>Funcionário Atual: {{ funcionario }}</h5>
+                        <h5>Funcionário Atual: </h5>
+                        <h6>{{ funcionario }}</h6>
                     </div>
                 </div>
                 <hr>
@@ -50,7 +53,6 @@
                             </tr>
                         </thead>
                         <tbody>
-
                             {% for andamento in object_list %}
                             <tr>
                                 <td>{{ andamento.ordem }}</td>
