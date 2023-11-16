@@ -830,29 +830,31 @@ class AndamentoAdmListUpdate(ListView):
 
         encaminhados = []
 
-        for andamento in andamentos:
-            armazena_andamentos_id.append(andamento.id)
-            
-            if andamento.tipo_andamento.id == 2:
-                encaminhados.append(andamento)
-    
-        if encaminhados:
-            ultimo_encaminhado = encaminhados[-1]
-            funcionario = ultimo_encaminhado.funcionario
+        if andamentos:
 
-        else:
             for andamento in andamentos:
-                funcionario = andamento.usuario_criador.get_full_name
-                print(funcionario)
+                armazena_andamentos_id.append(andamento.id)
+                
+                if andamento.tipo_andamento.id == 2:
+                    encaminhados.append(andamento)
         
-        if armazena_andamentos_id:
-            andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
-            andamento_atual_get = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
-            andamento_atual = andamento_atual_get.tipo_andamento
-            andamento_atual = str(andamento_atual)
+            if encaminhados:
+                ultimo_encaminhado = encaminhados[-1]
+                funcionario = ultimo_encaminhado.funcionario
+
+            else:
+                for andamento in andamentos:
+                    funcionario = andamento.usuario_criador.get_full_name
+
+            if armazena_andamentos_id:
+                andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
+                andamento_atual_get = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
+                andamento_atual = andamento_atual_get.tipo_andamento
+                andamento_atual = str(andamento_atual)
 
         else:
             andamento_atual = ''
+            funcionario = ''
 
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
