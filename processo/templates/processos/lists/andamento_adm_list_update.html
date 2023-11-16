@@ -43,6 +43,7 @@
                                 <th>Tipo</th>
                                 <th>Funcionário</th>
                                 <th>Localização</th>
+                                <th>Recebimento</th>
                                 <th>Prazo</th>
                                 {% if user.is_staff %} <!--Membro da equipe = is_staff-->
                                     <th>Usuário</th>
@@ -67,6 +68,11 @@
                                 <td><!--Campo ficará vazio pois não foi selecionado localizacao_processo --></td>
                                 {% else %}
                                 <td>{{ andamento.localizacao_processo }}</td>
+                                {% endif %}
+                                {% if andamento.confirmado == Null %}
+                                <td></td>
+                                {% else %}
+                                <td>{{ andamento.confirmado }}</td>
                                 {% endif %}
                                 {% if andamento.data_prazo == Null %}
                                 <td><!--Campo ficará vazio pois a data do prazo não foi selecionada --></td>
