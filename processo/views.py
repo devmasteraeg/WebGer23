@@ -840,7 +840,7 @@ class AndamentoAdmListUpdate(ListView):
             andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
 
             if andamento_atual.funcionario:
-                print('Já tem funcionario')
+                funcionario = andamento_atual.funcionario
             else:
                 funcionario = andamento_atual.usuario_criador.get_full_name
             
