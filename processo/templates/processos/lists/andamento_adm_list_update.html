@@ -90,6 +90,8 @@
                                     <td>
                                         {% if andamento.arquivo %}
                                             <a href="{{ andamento.arquivo.url }}" target="blank"><img src="{% static 'img/verificar.png' %}" width="20"></a>
+                                        {% else %}
+                                            <img src="{% static 'img/sem-arquivo.png' %}" width="23">
                                         {% endif %}
                                     </td>
 
