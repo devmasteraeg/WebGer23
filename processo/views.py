@@ -813,10 +813,26 @@ class AndamentoAdmListUpdate(ListView):
     
     # Função para iterar com os dados do processo na lista de andamentos
     def get_context_data(self, **kwargs):
+        armazena_andamentos_id = []
+        
         processo_pk = self.kwargs.get('pk') # Pega a PK do processo através da URL  
 
+        processo = ProcessoAdm.objects.get(pk=processo_pk)
+
+        andamentos = processo.andamentoadm_set.all()
+
+        for andamento in andamentos:
+            armazena_andamentos_id.append(andamento.id)
+
+        if armazena_andamentos_id:
+            andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
+            andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
+            andamento_atual = andamento.tipo_andamento
+        
         context = super().get_context_data(**kwargs)
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
+        context['andamento_atual'] = andamento_atual
+
         return context
 
 class ProcessoAdmExecutadoList(ListView):
