@@ -47,7 +47,7 @@
                             
                         </table>
                         <!-- <h5>Total Executados: {{ qtd_processos }}</h5> -->
-                        <h6>Total Pago: R$ {{ total_pago }}</h6>
+                        <h6>Total Crédito: R$ {{ total_credito_geral }}</h6>
                         
                         <br>
                         <a href="{% url 'proc-adm-list' %}" class="btn btn-secondary btn-sm">Voltar</a>
@@ -77,9 +77,9 @@
                 "pageLength": 5,
                 "language": {
                     "decimal": "",
-                    "emptyTable": "Nenhum processo recebido",
-                    "info": "Recebidos: _TOTAL_",
-                    "infoEmpty": "Recebidos: 0",
+                    "emptyTable": "Nenhum processo em andamento",
+                    "info": "Em Andamento: _TOTAL_",
+                    "infoEmpty": "Em Andamento: 0",
                     "infoFiltered": "",
                     "infoPostFix": "",
                     "thousands": ",",
