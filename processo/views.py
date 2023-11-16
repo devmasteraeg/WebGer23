@@ -838,8 +838,15 @@ class AndamentoAdmListUpdate(ListView):
         if armazena_andamentos_id:
             andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
             andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
+
+            if andamento_atual.funcionario:
+                print('Já tem funcionario')
+            else:
+                funcionario = andamento_atual.usuario_criador.get_full_name
+            
+
             andamento_atual = andamento.tipo_andamento
-            andamento_atual = str(andamento_atual).upper()
+            andamento_atual = str(andamento_atual)
         else:
             andamento_atual = 'Nenhum andamento registrado'
 
@@ -847,6 +854,7 @@ class AndamentoAdmListUpdate(ListView):
         context['dados_processo'] = ProcessoAdm.objects.filter(pk=processo_pk) # Filtra os dados do processo através da pk
         context['andamento_atual'] = andamento_atual
         context['ordem'] = ordem
+        context['funcionario'] = funcionario
 
         return context
 
