@@ -849,6 +849,7 @@ class ProcessoAdmExecutadoList(ListView):
                 if andamento_atual.tipo_andamento.id == 4: # Id do tipo andamento = Execução
                     processos_executados.append(processo)
                     total_credito.append(processo.valor_credito)
+                    
             else:
                 armazena_andamentos_id.append(0) # Para não ocorrer erro de sequência vazia ao executar o max com a lista vazia.
 
@@ -882,8 +883,10 @@ class ProcessoAdmRecebidoList(ListView):
                 andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do último id
 
                 if andamento_atual.tipo_andamento.id == 3 and andamento_atual.situacao_pagamento == 'Com Pagamento': # Id do tipo andamento = Encerrado
-                    processos_recebidos.append(processo)
                     total_pago.append(andamento_atual.valor_pago)
+                    valor_pago = [andamento_atual.valor_pago]
+                    processos_recebidos.append((processo, valor_pago))
+        
             else:
                 armazena_andamentos_id.append(0) # Para não ocorrer erro de sequência vazia ao executar o max com a lista vazia.
 
@@ -914,8 +917,8 @@ class ProcessoAdmAndamentoList(ListView):
                         armazena_andamentos_id.append(andamento.id)
 
                 if armazena_andamentos_id:
-                    andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior ID, que no caso é o último criado
-                    andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do último id
+                    andamento_atual_id = max(armazena_andamentos_id) # Utiliza o max para descobrir o maior id, que no caso é o último criado
+                    andamento_atual = processo.andamentoadm_set.get(id=andamento_atual_id) # Busca o último andamento através do maior id
 
                     if andamento_atual.tipo_andamento.id != 3 and andamento_atual.tipo_andamento.id != 4: 
                         processos_em_andamento.append(processo)

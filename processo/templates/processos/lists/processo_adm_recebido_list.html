@@ -26,18 +26,18 @@
                             <tr class="table-secondary">
                                 <th>Empresa</th>
                                 <th>Número do Processo</th>
-                                <!-- <th>Valor Pago</th> -->
+                                <th>Valor Pago</th>
                                 <!-- <th>Data</th> -->
                                 
                             </tr>
                         </thead>
                         <tbody>
 
-                            {% for processo in processos_recebidos %}
+                            {% for processo, valor in processos_recebidos %}
                                 <tr>
                                     <td> {{ processo.nome_contribuinte }} </td>
                                     <td> {{ processo.numero }} </td>
-                                    <!-- <td> R$ {{ processo.valor_pago }} </td> -->
+                                    <td> R$ {{ valor|join:"" }} </td>
                                 </tr>
                             {% endfor %}
                         </tbody>
